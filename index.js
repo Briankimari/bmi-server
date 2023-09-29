@@ -3,7 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-
+import cors from 'cors'
 // Create an Express application
 const app = express();
 
@@ -13,6 +13,7 @@ dotenv.config();
 // Configure middleware
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
+app.use(cors())
 
 // Define a MongoDB schema for BMI data
 const bmiSchema = new mongoose.Schema({
